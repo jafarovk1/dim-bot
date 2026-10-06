@@ -1,11 +1,11 @@
-import os, requests
+import os, re, requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
 TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
 URL = "https://dim.gov.az/az/metbuat/xeberler?search=D%C3%B6vl%C9%99t+qullu%C4%9Fu"
-KEYWORDS = ["Dövlət qulluğu", "qeydiyyat", "keçiriləcək"]   # istədiyin sözləri bura əlavə et
+KEYWORDS = ["qeydiyyat", "keçiriləcək", "dövlət qulluğ"]   # istədiyin sözləri bura əlavə et
 SEEN = "seen.txt"
 
 def send(text):
@@ -28,7 +28,7 @@ seen = set(open(SEEN, encoding="utf-8").read().split()) if not first_run else se
 
 for link, title in news.items():
     if link not in seen:
-        if not first_run and any(k in title.lower() for k in KEYWORDS):
+        if not first_run and (any(k in title.lower() for k in KEYWORDS) or re.search(r"\bbb\b", title.lower())):
             send(f"{title}\n{link}")
         seen.add(link)
 
