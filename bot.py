@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 
 TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
-URL = "https://dim.gov.az/az/metbuat/xeberler?search=D%C3%B6vl%C9%99t+qullu%C4%9Fu"
+URL = "https://dim.gov.az/az/metbuat/xeberler"
 KEYWORDS = ["qeydiyyat", "keçiriləcək", "dövlət qulluğ"]   # istədiyin sözləri bura əlavə et
 SEEN = "seen.txt"
 
