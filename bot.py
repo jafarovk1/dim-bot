@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
 URL = "https://dim.gov.az/az/metbuat/xeberler"
-KEYWORDS = ["qeydiyyat", "keçiriləcək", "dövlət qulluğ"]   # istədiyin sözləri bura əlavə et
+KEYWORDS = ["qeydiyyat", "keçir", "dövlət qulluğ"]   # istədiyin sözləri bura əlavə et
 SEEN = "seen.txt"
 
 def send(text):
